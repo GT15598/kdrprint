@@ -3412,19 +3412,58 @@ button {
 
 }
 
+/* MOBILE MENU */
+
+.mobile-nav {
+    display: none;
+}
+
 @media (max-width: 768px) {
 
-    .hero-actions {
+    .mobile-nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 380px;
+        height: 100vh;
+        padding: 110px 30px 40px;
+        background: #111;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+    }
+
+    .mobile-nav.active {
+        transform: translateX(0);
+    }
+
+    .mobile-nav .main-nav {
+        display: flex;
         flex-direction: column;
-        width: 100%;
-        gap: 12px;
+        gap: 24px;
     }
 
-    .hero-actions a {
-        width: 100%;
-        min-height: 58px;
-        font-size: 16px;
-        padding: 18px 22px;
+    .mobile-nav .main-nav a {
+        font-size: 20px;
+        text-decoration: none;
     }
 
+    .mobile-menu {
+        position: relative;
+        z-index: 1001;
+    }
+
+    .mobile-menu.active span:first-child {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .mobile-menu.active span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
 }

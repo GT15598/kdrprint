@@ -1,1 +1,0 @@
-console.log("KDRPRINT website loaded");
