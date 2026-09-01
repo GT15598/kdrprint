@@ -44,15 +44,15 @@
                 <span class="brand-print">PRINT</span>
             </a>
 
-
-            <nav class="main-nav">
-                <a href="{% url 'home' %}">Басты бет</a>
-                <a href="{% url 'services' %}">Қызметтер</a>
-                <a href="{% url 'portfolio' %}">Жұмыстар</a>
-                <a href="{% url 'about' %}">Біз туралы</a>
-                <a href="{% url 'contacts' %}">Байланыс</a>
-            </nav>
-
+            <div class="mobile-nav">
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}">Басты бет</a>
+                    <a href="{% url 'services' %}">Қызметтер</a>
+                    <a href="{% url 'portfolio' %}">Жұмыстар</a>
+                    <a href="{% url 'about' %}">Біз туралы</a>
+                    <a href="{% url 'contacts' %}">Байланыс</a>
+                </nav>
+            </div>
 
             <a href="https://wa.me/77074830083" class="header-action">
                 <span>Тапсырыс беру</span>
@@ -70,10 +70,31 @@
     </header>
 
 
+    <script>
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+</script>
+
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
+
 
 
     <footer class="site-footer">

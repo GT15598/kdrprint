@@ -3411,3 +3411,20 @@ button {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-actions a {
+        width: 100%;
+        min-height: 58px;
+        font-size: 16px;
+        padding: 18px 22px;
+    }
+
+}
