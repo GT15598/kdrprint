@@ -1,236 +1,415 @@
-{% extends 'main/base.html' %}
+```html
+{% extends "main/base.html" %}
+{% load static %}
 
 {% block title %}Байланыс — KDRPRINT{% endblock %}
 
 {% block content %}
 
-<section class="contact-hero">
+<style>
+    .contacts-page {
+        background: #050505;
+        color: #fff;
+        min-height: 100vh;
+    }
 
-    {% if messages %}
+    .contacts-main {
+        padding: 120px 6vw 0;
+    }
 
-<div class="site-messages">
+    /* CONTACTS */
 
-    {% for message in messages %}
+    .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid rgba(255,255,255,.14);
+        border-bottom: 1px solid rgba(255,255,255,.14);
+    }
 
-    <div class="site-message">
-        {{ message }}
-    </div>
+    .contacts-column {
+        padding: 90px 60px 90px 0;
+    }
 
-    {% endfor %}
+    .contacts-column + .contacts-column {
+        border-left: 1px solid rgba(255,255,255,.14);
+        padding-left: 60px;
+    }
 
-</div>
+    .contacts-label {
+        font-size: 11px;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.42);
+        margin-bottom: 45px;
+    }
 
-{% endif %}
+    .contacts-phone {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        font-size: clamp(32px, 4vw, 58px);
+        line-height: 1;
+        letter-spacing: -.045em;
+        transition: opacity .3s ease, transform .3s ease;
+    }
 
-    <div class="contact-bg-word">
-        HELLO
-    </div>
+    .contacts-phone:hover {
+        opacity: .55;
+        transform: translateX(8px);
+    }
 
-    <div class="container">
+    .contacts-description {
+        margin-top: 25px;
+        max-width: 400px;
+        color: rgba(255,255,255,.45);
+        font-size: 14px;
+        line-height: 1.6;
+    }
 
-        <div class="luxury-kicker">
-            04 / БАЙЛАНЫС
-        </div>
+    /* SOCIAL */
 
-        <h1>
-            Жобаны
-            <em>бастайық.</em>
-        </h1>
+    .contacts-social {
+        display: flex;
+        flex-direction: column;
+    }
 
-        <p>
-            Жобаңыз туралы айтып беріңіз.
-            Біз міндетті талқылап,
-            шешім ұсынамыз.
-        </p>
+    .contacts-social-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 17px 0;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+        color: #fff;
+        text-decoration: none;
+        font-size: clamp(25px, 3vw, 42px);
+        letter-spacing: -.04em;
+        transition: opacity .3s ease, padding-left .3s ease;
+    }
 
-    </div>
+    .contacts-social-link:first-child {
+        border-top: 1px solid rgba(255,255,255,.14);
+    }
 
-</section>
+    .contacts-social-link:hover {
+        opacity: .55;
+        padding-left: 8px;
+    }
+
+    .contacts-social-arrow {
+        font-size: 20px;
+        color: rgba(255,255,255,.4);
+    }
+
+    /* LOCATION */
+
+    .contacts-location {
+        margin-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .contacts-location-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+    }
+
+    .contacts-location-title {
+        margin: 0;
+        font-size: clamp(48px, 7vw, 100px);
+        line-height: .88;
+        letter-spacing: -.065em;
+        font-weight: 500;
+    }
+
+    .contacts-location-number {
+        font-size: 10px;
+        letter-spacing: .18em;
+        color: rgba(255,255,255,.4);
+        text-transform: uppercase;
+    }
+
+    .contacts-location-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.8fr;
+        border-top: 1px solid rgba(255,255,255,.14);
+    }
+
+    .contacts-address {
+        padding: 55px 50px 55px 0;
+    }
+
+    .contacts-address-label {
+        font-size: 10px;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.4);
+        margin-bottom: 28px;
+    }
+
+    .contacts-address-text {
+        font-size: clamp(25px, 2.8vw, 42px);
+        line-height: 1.08;
+        letter-spacing: -.045em;
+    }
+
+    .contacts-hours {
+        margin-top: 30px;
+        color: rgba(255,255,255,.45);
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .contacts-route {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 32px;
+        padding: 15px 20px;
+        border: 1px solid rgba(255,255,255,.25);
+        color: #fff;
+        text-decoration: none;
+        font-size: 11px;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        transition: background .3s ease, color .3s ease;
+    }
+
+    .contacts-route:hover {
+        background: #fff;
+        color: #050505;
+    }
+
+    .contacts-map {
+        min-height: 450px;
+        border-left: 1px solid rgba(255,255,255,.14);
+        overflow: hidden;
+        background: #111;
+    }
+
+    .contacts-map iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 450px;
+        border: 0;
+        filter: grayscale(1) contrast(1.05);
+        opacity: .8;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+        .contacts-main {
+            padding: 90px 24px 0;
+        }
+
+        .contacts-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contacts-column {
+            padding: 65px 0;
+        }
+
+        .contacts-column + .contacts-column {
+            border-left: 0;
+            border-top: 1px solid rgba(255,255,255,.14);
+            padding: 65px 0;
+        }
+
+        .contacts-label {
+            margin-bottom: 35px;
+        }
+
+        .contacts-location {
+            margin-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .contacts-location-head {
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .contacts-location-number {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .contacts-location-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contacts-address {
+            padding: 45px 0 55px;
+        }
+
+        .contacts-map {
+            border-left: 0;
+            border-top: 1px solid rgba(255,255,255,.14);
+            min-height: 350px;
+        }
+
+        .contacts-map iframe {
+            min-height: 350px;
+        }
+    }
+</style>
 
 
-<section class="contact-information">
+<div class="contacts-page">
 
-    <div class="container contact-information-grid">
+    <main class="contacts-main">
 
+        <!-- CONTACTS -->
 
-        <div class="contact-details">
+        <section class="contacts-grid">
 
-            <div class="luxury-kicker">
-                БАЙЛАНЫС АҚПАРАТЫ
-            </div>
+            <div class="contacts-column">
 
+                <div class="contacts-label">
+                    Тікелей байланыс
+                </div>
 
-            <div class="contact-detail">
-
-                <span>ТЕЛЕФОН</span>
-
-                <a href="tel:+77000000000">
-                    +7 700 000 00 00
+                <a
+                    href="https://wa.me/77074830083"
+                    target="_blank"
+                    rel="noopener"
+                    class="contacts-phone"
+                >
+                    +7 707 483 00 83 ↗
                 </a>
 
-            </div>
-
-
-            <div class="contact-detail">
-
-                <span>EMAIL</span>
-
-                <a href="mailto:info@kdrprint.kz">
-                    info@kdrprint.kz
-                </a>
-
-            </div>
-
-
-            <div class="contact-detail">
-
-                <span>МЕКЕНЖАЙ</span>
-
-                <p>
-                    Шымкент<br>
-                    Қазақстан
-                </p>
-
-            </div>
-
-
-            <div class="contact-detail">
-
-                <span>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</span>
-
-                <div class="contact-socials">
-                    <a href="#">Instagram ↗</a>
-                    <a href="#">WhatsApp ↗</a>
-                    <a href="#">TikTok ↗</a>
+                <div class="contacts-description">
+                    WhatsApp арқылы тікелей байланысыңыз.
+                    Жобаңызды талқылап, қажетті шешімді бірге табамыз.
                 </div>
 
             </div>
 
-        </div>
 
+            <div class="contacts-column">
 
-        <div class="contact-form-box">
+                <div class="contacts-label">
+                    Әлеуметтік желілер
+                </div>
 
-            <div class="luxury-kicker">
-                ЖОБАНЫ БАСТАУ
+                <div class="contacts-social">
+
+                    <!-- Instagram-ның нақты сілтемесін осы жерге қой -->
+                    <a
+                        href="https://www.instagram.com/kdr_print?igsi=MWJyNnJjcDR2cTJ1ZA%3D%3D"
+                        class="contacts-social-link"
+                        onclick="return false;"
+                    >
+                        Instagram
+                        <span class="contacts-social-arrow">↗</span>
+                    </a>
+
+                    <a
+                        href="https://wa.me/77074830083"
+                        target="_blank"
+                        rel="noopener"
+                        class="contacts-social-link"
+                    >
+                        WhatsApp
+                        <span class="contacts-social-arrow">↗</span>
+                    </a>
+
+                    <!-- TikTok-тың нақты сілтемесін осы жерге қой -->
+                    <a
+                        href="#"
+                        class="contacts-social-link"
+                        onclick="return false;"
+                    >
+                        TikTok
+                        <span class="contacts-social-arrow">↗</span>
+                    </a>
+
+                </div>
+
             </div>
 
-            <h2>
-                Жобаңыз
-                <em>туралы жазыңыз.</em>
-            </h2>
+        </section>
 
 
-<form
-    class="luxury-form"
-    method="POST"
-    action="{% url 'contacts' %}"
->
+        <!-- LOCATION -->
 
-    {% csrf_token %}
+        <section class="contacts-location">
 
-    <div class="form-field">
+            <div class="contacts-location-head">
 
-        <label>
-            Аты-жөні
-        </label>
+                <div>
 
-        <input
-            type="text"
-            name="name"
-            placeholder="Атыңызды енгізіңіз"
-            required
-        >
+                    <div class="contacts-label">
+                        Нақты мекенжай
+                    </div>
 
-    </div>
+                    <h1 class="contacts-location-title">
+                        Біз<br>
+                        осындамыз.
+                    </h1>
 
+                </div>
 
-    <div class="form-field">
+                <div class="contacts-location-number">
+                    ШЫМКЕНТ · 01
+                </div>
 
-        <label>
-            Телефон
-        </label>
-
-        <input
-            type="tel"
-            name="phone"
-            placeholder="+7 (___) ___-__-__"
-            required
-        >
-
-    </div>
+            </div>
 
 
-    <div class="form-field">
+            <div class="contacts-location-grid">
 
-        <label>
-            Email
-        </label>
+                <div class="contacts-address">
 
-        <input
-            type="email"
-            name="email"
-            placeholder="your@email.com"
-        >
+                    <div class="contacts-address-label">
+                        Мекенжай
+                    </div>
 
-    </div>
+                    <div class="contacts-address-text">
+                        Шымкент<br>
+                        ул. Габдоллы Токаева, 23
+                    </div>
 
+                    <div class="contacts-hours">
+                        Жұмыс уақыты<br>
+                        09:00 — 19:00
+                    </div>
 
-    <div class="form-field">
+                    <!-- Мұнда нақты 2GIS сілтемесін кейін қоюға болады -->
+                    <a
+                        href="#"
+                        class="contacts-route"
+                        onclick="return false;"
+                    >
+                        Построить маршрут
+                        <span>↗</span>
+                    </a>
 
-        <label>
-            Хабарлама
-        </label>
-
-        <textarea
-            name="message"
-            placeholder="Жобаңыз туралы қысқаша жазыңыз"
-            required
-        ></textarea>
-
-    </div>
-
-
-    <button
-        type="submit"
-        class="luxury-submit"
-    >
-        Өтінім жіберу
-
-        <span>
-            ↗
-        </span>
-
-    </button>
-
-</form>
-
-        </div>
-
-    </div>
-
-</section>
+                </div>
 
 
-<section class="contact-bottom-section">
+                <div class="contacts-map">
 
-    <div class="container">
+                    <iframe
+                        src="https://www.google.com/maps?q=Шымкент,+улица+Габдоллы+Токаева,+23&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="KDRPRINT — Шымкент, ул. Габдоллы Токаева, 23">
+                    </iframe>
 
-        <div class="contact-bottom-inner">
+                </div>
 
-            <span class="luxury-kicker">
-                KDRPRINT / ШЫМКЕНТ
-            </span>
+            </div>
 
-            <h2>
-                КЕЗДЕСКЕНШЕ
-                <em>SOON.</em>
-            </h2>
+        </section>
 
-        </div>
+    </main>
 
-    </div>
-
-</section>
+</div>
 
 {% endblock %}
+```
