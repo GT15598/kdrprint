@@ -8,4 +8,4 @@ python manage.py collectstatic --noinput
 python manage.py migrate
 
 python manage.py migrate 
-python manage.py shell -c "from django.contrib.auth import get_user_model; User=get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@kdrprint.com', 'izi2007?')"
+python manage.py shell -c "import os; from django.contrib.auth import get_user_model; User=get_user_model(); username=os.environ['DJANGO_SUPERUSER_USERNAME']; password=os.environ['DJANGO_SUPERUSER_PASSWORD']; email=os.environ.get('DJANGO_SUPERUSER_EMAIL', 'admin@kdrprint.com'); User.objects.filter(username=username).exists() or User.objects.create_superuser(username, email, password)"
