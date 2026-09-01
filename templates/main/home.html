@@ -1,0 +1,680 @@
+{% extends 'main/base.html' %}
+
+{% block title %}KDRPRINT — Жарнама және баспа{% endblock %}
+
+{% block content %}
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="luxury-hero">
+
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="container">
+
+        <div class="hero-topline">
+
+            <div class="hero-location">
+                ШЫМКЕНТ · ҚАЗАҚСТАН
+            </div>
+
+            <div>
+                2026
+            </div>
+
+        </div>
+
+
+        <div class="hero-main">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+                    <span></span>
+                    Жарнама өндірісі
+                </div>
+
+
+                <h1>
+                    Сіздің жарнамаңыз
+                    <em>ерекше</em>
+                    болуы
+                    <strong>керек.</strong>
+                </h1>
+
+
+                <p class="hero-lead">
+                    Жарнама, дизайн және баспа өнімдерін
+                    бір жерден жасаймыз.
+                    Бизнесіңізді сапалы әрі заманауи
+                    түрде көрсетуге көмектесеміз.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="{% url 'portfolio' %}"
+                        class="luxury-button primary"
+                    >
+                        <span>Жұмыстарды көру</span>
+                        <i>↗</i>
+                    </a>
+
+
+                    <a
+                        href="{% url 'contacts' %}"
+                        class="luxury-button secondary"
+                    >
+                        <span>Жоба бастау</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image-wrap">
+
+                <div class="hero-image-frame">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=1600&q=90"
+                        alt="Жарнама өндірісі"
+                    >
+
+                    <div class="image-dark"></div>
+
+                    <div class="image-corner top-left"></div>
+                    <div class="image-corner bottom-right"></div>
+
+                    <div class="hero-image-info">
+                        <span>KDRPRINT</span>
+                        <span>ЖАРНАМА / ДИЗАЙН / БАСУ</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-scroll">
+            <span>ТӨМЕН ЖЫЛЖЫТЫҢЫЗ</span>
+            <div></div>
+            <span>↓</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHILOSOPHY
+========================= -->
+
+<section class="statement-section">
+
+    <div class="container statement-grid">
+
+        <div class="section-number">
+            01
+        </div>
+
+        <div class="statement-content">
+
+            <div class="small-label">
+                БІЗДІҢ КӨЗҚАРАСЫМЫЗ
+            </div>
+
+            <h2>
+                Сапа —
+                <em>ұсақ деталь емес.</em>
+                <br>
+                Сапа —
+                <span>біздің стандарт.</span>
+            </h2>
+
+            <p>
+                Біз жай ғана жарнама басып шығармаймыз.
+                Әр жұмыстың сыртқы көрінісіне,
+                сапасына және жалпы әсеріне мән береміз.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="luxury-services">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+                <span class="small-label">
+                    02 / ҚЫЗМЕТТЕР
+                </span>
+
+                <h2>
+                    Не
+                    <em>жасаймыз?</em>
+                </h2>
+            </div>
+
+            <p>
+                Идеядан бастап дайын өнімге дейін —
+                жарнаманың толық өндірістік циклін орындаймыз.
+            </p>
+
+        </div>
+
+
+        <div class="luxury-service-list">
+
+
+            <a
+                href="{% url 'services' %}"
+                class="luxury-service"
+            >
+
+                <div class="service-number">01</div>
+
+                <div class="service-name">
+                    <span>СЫРТҚЫ</span>
+                    <strong>ЖАРНАМА</strong>
+                </div>
+
+                <div class="service-description">
+                    Маңдайшалар, көлемді әріптер,
+                    фасадты безендіру және жарнамалық құрылымдар.
+                </div>
+
+                <div class="service-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'services' %}"
+                class="luxury-service"
+            >
+
+                <div class="service-number">02</div>
+
+                <div class="service-name">
+                    <span>ҮЛКЕН</span>
+                    <strong>ФОРМАТТЫ БАСУ</strong>
+                </div>
+
+                <div class="service-description">
+                    Баннер, пленка, постер, холст
+                    және басқа да үлкен форматты материалдар.
+                </div>
+
+                <div class="service-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'services' %}"
+                class="luxury-service"
+            >
+
+                <div class="service-number">03</div>
+
+                <div class="service-name">
+                    <span>ДИЗАЙН ЖӘНЕ</span>
+                    <strong>ЖАРНАМА</strong>
+                </div>
+
+                <div class="service-description">
+                    Логотип, жарнамалық макет,
+                    фирмалық материалдар және визуалдық шешімдер.
+                </div>
+
+                <div class="service-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'services' %}"
+                class="luxury-service"
+            >
+
+                <div class="service-number">04</div>
+
+                <div class="service-name">
+                    <span>БАСЫП</span>
+                    <strong>ШЫҒАРУ</strong>
+                </div>
+
+                <div class="service-description">
+                    Визитка, каталог, мәзір,
+                    буклет, жапсырма және басқа баспа өнімдері.
+                </div>
+
+                <div class="service-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED
+========================= -->
+
+<section class="featured-project">
+
+    <div class="container">
+
+        <div class="featured-header">
+
+            <div class="small-label">
+                03 / ТАҢДАУЛЫ ЖҰМЫС
+            </div>
+
+            <span>
+                ЖОБА / 01
+            </span>
+
+        </div>
+
+
+        <div class="featured-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1900&q=90"
+                alt="Жарнама жобасы"
+            >
+
+            <div class="featured-overlay"></div>
+
+            <div class="featured-title">
+
+                <span>ЖАРНАМА ДИЗАЙНЫ</span>
+
+                <h2>
+                    КӨРІНЕТІН
+                    <em>ЖАРНАМА</em>
+                </h2>
+
+                <a href="{% url 'portfolio' %}">
+                    Жобаларды көру <b>↗</b>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NUMBERS
+========================= -->
+
+<section class="luxury-numbers">
+
+    <div class="container">
+
+        <div class="numbers-heading">
+
+            <span class="small-label">
+                04 / KDRPRINT
+            </span>
+
+            <h2>
+                Тәжірибе,
+                <em>нәтижеге</em>
+                айналады.
+            </h2>
+
+        </div>
+
+
+        
+        <div class="numbers-row">
+
+            <div class="luxury-number">
+                <strong>1000<span>+</span></strong>
+                <p>
+                    орындалған<br>
+                    жоба
+                </p>
+            </div>
+
+            <div class="luxury-number">
+                <strong>20<span></span></strong>
+                <p>
+                    жылдық<br>
+                    тәжірибе
+                </p>
+            </div>
+
+            <div class="luxury-number">
+                <strong>24<span>/7</span></strong>
+                <p>
+                    клиенттермен<br>
+                    байланыс
+                </p>
+            </div>
+
+            <div class="luxury-number">
+                <strong>01</strong>
+                <p>
+                    толық<br>
+                    команда
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PORTFOLIO
+========================= -->
+
+<section class="luxury-portfolio">
+
+    <div class="container">
+
+        <div class="section-header portfolio-header">
+
+            <div>
+
+                <span class="small-label">
+                    05 / ЖҰМЫСТАР
+                </span>
+
+                <h2>
+                    Соңғы
+                    <em>жобалар</em>
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{% url 'portfolio' %}"
+                class="view-all"
+            >
+                Барлық жұмыстар
+                <span>↗</span>
+            </a>
+
+        </div>
+
+
+        <div class="portfolio-masonry">
+
+
+            <a
+                href="{% url 'portfolio' %}"
+                class="portfolio-card tall"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=90"
+                    alt="Баспа жұмысы"
+                >
+
+                <div class="portfolio-card-info">
+                    <span>01 / БАСУ</span>
+                    <h3>Баспа өнімдері</h3>
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'portfolio' %}"
+                class="portfolio-card"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=90"
+                    alt="Жарнама дизайны"
+                >
+
+                <div class="portfolio-card-info">
+                    <span>02 / ДИЗАЙН</span>
+                    <h3>Жарнама дизайны</h3>
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'portfolio' %}"
+                class="portfolio-card"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90"
+                    alt="Коммерциялық кеңістік"
+                >
+
+                <div class="portfolio-card-info">
+                    <span>03 / РЕКЛАМА</span>
+                    <h3>Коммерциялық кеңістік</h3>
+                </div>
+
+            </a>
+
+
+            <a
+                href="{% url 'portfolio' %}"
+                class="portfolio-card wide"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1600&q=90"
+                    alt="Жарнама жобасы"
+                >
+
+                <div class="portfolio-card-info">
+                    <span>04 / ЖАРНАМА</span>
+                    <h3>Жарнамалық жоба</h3>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="portfolio-masonry">
+    <div class="portfolio-masonry">
+
+    {% for project in featured_projects %}
+
+    <a
+        href="{% url 'portfolio' %}"
+        class="portfolio-card {% if forloop.first %}tall{% endif %}"
+    >
+
+        {% if project.image %}
+
+        <img
+            src="{{ project.image.url }}"
+            alt="{{ project.title }}"
+        >
+
+        {% endif %}
+
+        <div class="portfolio-card-info">
+
+            <span>
+                {{ project.get_category_display|upper }}
+            </span>
+
+            <h3>
+                {{ project.title }}
+            </h3>
+
+        </div>
+
+    </a>
+
+    {% empty %}
+
+    <div class="empty-home-projects">
+
+        <span>
+            KDRPRINT
+        </span>
+
+        <h3>
+            Жақында мұнда
+            <em>жаңа жұмыстар</em> пайда болады.
+        </h3>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="luxury-about">
+
+    <div class="container about-grid">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1500&q=90"
+                alt="KDRPRINT өндірісі"
+            >
+
+            <div class="about-number">
+                06
+            </div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <span class="small-label">
+                06 / БІЗ ТУРАЛЫ
+            </span>
+
+            <h2>
+                Қарапайым
+                <em>жарнаманы</em>
+                ерекше
+                <strong>етеміз.</strong>
+            </h2>
+
+            <p>
+                KDRPRINT — жарнама, баспа және
+                дизайнды бір командада біріктіретін
+                заманауи өндіріс.
+            </p>
+
+            <p>
+                Біз бизнеске өз ойын дұрыс жеткізуге,
+                көзге түсуге және есте қалуға көмектесеміз.
+            </p>
+
+            <a
+                href="{% url 'about' %}"
+                class="text-link"
+            >
+                Біз туралы толығырақ
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="luxury-contact">
+
+    <div class="container">
+
+        <div class="contact-label">
+            07 / ЖОБАНЫ БАСТАУ
+        </div>
+
+        <h2>
+            Жарнамаңызды
+            <em>бірге</em>
+            <span>жасайық.</span>
+        </h2>
+
+        <div class="contact-bottom">
+
+            <p>
+                Жобаңыз, идеяңыз немесе сұрағыңыз бар ма?
+                Бізге жазыңыз — жұмысты бірге бастаймыз.
+            </p>
+
+            <a
+                href="{% url 'contacts' %}"
+                class="contact-circle"
+            >
+                <span>
+                    ЖОБАНЫ<br>
+                    БАСТАУ
+                </span>
+
+                <b>↗</b>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

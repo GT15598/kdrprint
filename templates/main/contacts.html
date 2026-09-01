@@ -1,0 +1,236 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Байланыс — KDRPRINT{% endblock %}
+
+{% block content %}
+
+<section class="contact-hero">
+
+    {% if messages %}
+
+<div class="site-messages">
+
+    {% for message in messages %}
+
+    <div class="site-message">
+        {{ message }}
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+    <div class="contact-bg-word">
+        HELLO
+    </div>
+
+    <div class="container">
+
+        <div class="luxury-kicker">
+            04 / БАЙЛАНЫС
+        </div>
+
+        <h1>
+            Жобаны
+            <em>бастайық.</em>
+        </h1>
+
+        <p>
+            Жобаңыз туралы айтып беріңіз.
+            Біз міндетті талқылап,
+            шешім ұсынамыз.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="contact-information">
+
+    <div class="container contact-information-grid">
+
+
+        <div class="contact-details">
+
+            <div class="luxury-kicker">
+                БАЙЛАНЫС АҚПАРАТЫ
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>ТЕЛЕФОН</span>
+
+                <a href="tel:+77000000000">
+                    +7 700 000 00 00
+                </a>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>EMAIL</span>
+
+                <a href="mailto:info@kdrprint.kz">
+                    info@kdrprint.kz
+                </a>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>МЕКЕНЖАЙ</span>
+
+                <p>
+                    Шымкент<br>
+                    Қазақстан
+                </p>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</span>
+
+                <div class="contact-socials">
+                    <a href="#">Instagram ↗</a>
+                    <a href="#">WhatsApp ↗</a>
+                    <a href="#">TikTok ↗</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-form-box">
+
+            <div class="luxury-kicker">
+                ЖОБАНЫ БАСТАУ
+            </div>
+
+            <h2>
+                Жобаңыз
+                <em>туралы жазыңыз.</em>
+            </h2>
+
+
+<form
+    class="luxury-form"
+    method="POST"
+    action="{% url 'contacts' %}"
+>
+
+    {% csrf_token %}
+
+    <div class="form-field">
+
+        <label>
+            Аты-жөні
+        </label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Атыңызды енгізіңіз"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-field">
+
+        <label>
+            Телефон
+        </label>
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="+7 (___) ___-__-__"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-field">
+
+        <label>
+            Email
+        </label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+        >
+
+    </div>
+
+
+    <div class="form-field">
+
+        <label>
+            Хабарлама
+        </label>
+
+        <textarea
+            name="message"
+            placeholder="Жобаңыз туралы қысқаша жазыңыз"
+            required
+        ></textarea>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="luxury-submit"
+    >
+        Өтінім жіберу
+
+        <span>
+            ↗
+        </span>
+
+    </button>
+
+</form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact-bottom-section">
+
+    <div class="container">
+
+        <div class="contact-bottom-inner">
+
+            <span class="luxury-kicker">
+                KDRPRINT / ШЫМКЕНТ
+            </span>
+
+            <h2>
+                КЕЗДЕСКЕНШЕ
+                <em>SOON.</em>
+            </h2>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Жұмыстар — KDRPRINT{% endblock %}
+
+{% block content %}
+
+<section class="inner-hero luxury-inner-hero portfolio-hero">
+
+    <div class="inner-hero-number">02</div>
+
+    <div class="container">
+
+        <div class="luxury-kicker">
+            KDRPRINT / ЖҰМЫСТАР
+        </div>
+
+        <h1>
+            Жұмыс өзі
+            <em>сөйлейді.</em>
+        </h1>
+
+        <p>
+            Біз орындаған жарнамалық және баспа жобалары.
+            Әр жобаға жеке көзқарас және сапалы өндіріс.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="portfolio-page">
+
+    <div class="container">
+
+        <div class="portfolio-page-head">
+
+            <div class="luxury-kicker">
+                ТАҢДАУЛЫ ЖОБАЛАР
+            </div>
+
+            <p>
+                KDRPRINT / {{ projects|length }} ЖОБА
+            </p>
+
+        </div>
+
+
+        {% if projects %}
+
+        <div class="premium-portfolio-grid">
+
+            {% for project in projects %}
+
+                <a href={% url 'project_detail' project.id %}" class="premium-project"> 
+
+                    <div class="premium-project-image">
+
+                        {% if project.image %}
+
+                            <img
+                                src="{{ project.image.url }}"
+                                alt="{{ project.title }}"
+                            >
+
+                        {% else %}
+
+                            <div class="no-project-image">
+                                KDRPRINT
+                            </div>
+
+                        {% endif %}
+
+                        <div class="project-shade"></div>
+
+                        <span class="project-view">
+                            КӨРУ ↗
+                        </span>
+
+                    </div>
+
+
+                    <div class="premium-project-info">
+
+                        <div>
+
+                            <span>
+                                {{ project.get_category_display|upper }}
+                            </span>
+
+                            <h2>
+                                {{ project.title }}
+                            </h2>
+
+                            {% if project.description %}
+                                <small>
+                                    {{ project.description }}
+                                </small>
+                            {% endif %}
+
+                        </div>
+
+                        <span>
+                            {{ project.year }}
+                        </span>
+
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <div class="empty-projects">
+
+            <span>ӘЗІРГЕ ЖОБАЛАР ЖОҚ</span>
+
+            <h2>
+                Алғашқы жұмысты
+                <em>қосайық.</em>
+            </h2>
+
+            <p>
+                Django Admin панелі арқылы
+                бірінші жобаңызды жүктеңіз.
+            </p>
+
+            <a href="/admin/" class="luxury-cta-button">
+                Жоба қосу
+                <span>↗</span>
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<section class="inner-cta portfolio-cta">
+
+    <div class="container">
+
+        <span class="luxury-kicker">
+            СІЗДІҢ ЖОБАҢЫЗ БАР МА?
+        </span>
+
+        <h2>
+            Келесі жоба
+            <em>сіздікі болуы мүмкін.</em>
+        </h2>
+
+        <a href="{% url 'contacts' %}" class="luxury-cta-button">
+            Жоба бастау
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

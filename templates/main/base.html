@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}KDRPRINT — Жарнама және баспа{% endblock %}</title>
+
+    <meta
+        name="description"
+        content="KDRPRINT — Шымкент қаласындағы жарнама, баспа, сыртқы жарнама және дизайн."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="luxury-loader">
+        <div class="luxury-loader__line"></div>
+
+        <div class="luxury-loader__logo">
+            KDR<span>PRINT</span>
+        </div>
+    </div>
+
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="{% url 'home' %}" class="brand">
+                <span class="brand-kdr">KDR</span>
+                <span class="brand-print">PRINT</span>
+            </a>
+
+
+            <nav class="main-nav">
+                <a href="{% url 'home' %}">Басты бет</a>
+                <a href="{% url 'services' %}">Қызметтер</a>
+                <a href="{% url 'portfolio' %}">Жұмыстар</a>
+                <a href="{% url 'about' %}">Біз туралы</a>
+                <a href="{% url 'contacts' %}">Байланыс</a>
+            </nav>
+
+
+            <a href="{% url 'contacts' %}" class="header-action">
+                <span>Жобаға тапсырыс беру</span>
+                <i>↗</i>
+            </a>
+
+
+            <button class="mobile-menu" aria-label="Мәзір">
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <a href="{% url 'home' %}" class="footer-logo">
+                        KDR<span>PRINT</span>
+                    </a>
+
+                    <p>
+                        Бизнесіңізді ерекшелендіретін
+                        жарнама, дизайн және баспа шешімдері.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-giant">
+                    KDR<span>PRINT</span>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>© 2026 KDRPRINT</span>
+
+                <div class="footer-socials">
+                    <a href="#">Instagram</a>
+                    <a href="#">WhatsApp</a>
+                    <a href="#">TikTok</a>
+                </div>
+
+                <span>Шымкент · Қазақстан</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

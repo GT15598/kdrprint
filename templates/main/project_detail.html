@@ -1,0 +1,141 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ project.title }} — KDRPRINT
+{% endblock %}
+
+{% block content %}
+
+<section class="project-detail-hero">
+
+    <div class="container">
+
+        <div class="project-detail-top">
+
+            <a href="{% url 'portfolio' %}" class="back-link">
+                ← Барлық жұмыстар
+            </a>
+
+            <span>
+                {{ project.get_category_display|upper }}
+            </span>
+
+        </div>
+
+
+        <div class="project-detail-title">
+
+            <div class="luxury-kicker">
+                KDRPRINT / {{ project.year }}
+            </div>
+
+            <h1>
+                {{ project.title }}
+            </h1>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="project-detail-content">
+
+    <div class="container">
+
+        {% if project.image %}
+
+        <div class="project-detail-image">
+
+            <img
+                src="{{ project.image.url }}"
+                alt="{{ project.title }}"
+            >
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="project-detail-info">
+
+            <div class="project-detail-meta">
+
+                <span>САНАТ</span>
+
+                <strong>
+                    {{ project.get_category_display }}
+                </strong>
+
+            </div>
+
+
+            <div class="project-detail-meta">
+
+                <span>ЖЫЛ</span>
+
+                <strong>
+                    {{ project.year }}
+                </strong>
+
+            </div>
+
+
+            <div class="project-description">
+
+                <span class="luxury-kicker">
+                    ЖОБА ТУРАЛЫ
+                </span>
+
+                {% if project.description %}
+
+                    <p>
+                        {{ project.description }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Бұл жоба туралы ақпарат
+                        жақында толықтырылады.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="project-detail-next">
+
+    <div class="container">
+
+        <div class="luxury-kicker">
+            KDRPRINT
+        </div>
+
+        <h2>
+            Келесі
+            <em>жобаны</em>
+            бастайық.
+        </h2>
+
+        <a
+            href="{% url 'contacts' %}"
+            class="luxury-cta-button"
+        >
+            Жобаға тапсырыс беру
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

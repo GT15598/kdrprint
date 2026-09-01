@@ -1,0 +1,318 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ service.title }} — KDRPRINT
+{% endblock %}
+
+{% block content %}
+
+<section class="service-detail-hero">
+
+    <div class="container">
+
+        <div class="service-detail-top">
+
+            <a href="{% url 'services' %}" class="back-link">
+                <span>←</span>
+                Барлық қызметтер
+            </a>
+
+            <span>
+                KDRPRINT
+            </span>
+
+        </div>
+
+
+        <div class="service-detail-heading">
+
+            <div class="luxury-kicker">
+                KDRPRINT / {{ service.number|stringformat:"02d" }}
+            </div>
+
+            <h1>
+                {{ service.title }}
+            </h1>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="service-detail-main">
+
+    <div class="container">
+
+
+        {% if service.image %}
+
+        <div class="service-detail-image">
+
+            <img
+                src="{{ service.image.url }}"
+                alt="{{ service.title }}"
+            >
+
+            <div class="service-detail-image-overlay">
+
+                <span>
+                    KDRPRINT
+                </span>
+
+                <span>
+                    {{ service.short_title|upper }}
+                </span>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="service-detail-description">
+
+            <div>
+
+                <div class="luxury-kicker">
+                    ҚЫЗМЕТ ТУРАЛЫ
+                </div>
+
+                <h2>
+                    Сізге қажет
+                    <em>шешім.</em>
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                {% if service.full_description %}
+
+                    <p>
+                        {{ service.full_description|linebreaksbr }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        {{ service.description }}
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% if service.gallery.all %}
+
+<section class="service-gallery">
+
+    <div class="service-gallery-header">
+
+        <div>
+            <div class="luxury-kicker">
+                ЖҰМЫСТАР ГАЛЕРЕЯСЫ
+            </div>
+
+            <h2>
+                Нақты
+                <em>жұмыстар.</em>
+            </h2>
+        </div>
+
+        <div class="gallery-count">
+            {{ service.gallery.count }} СУРЕТ
+        </div>
+
+    </div>
+
+
+    <div class="service-gallery-grid">
+
+        {% for gallery_image in service.gallery.all %}
+
+        <div class="service-gallery-item
+            {% if forloop.first %}gallery-large{% endif %}">
+
+            <img
+                src="{{ gallery_image.image.url }}"
+                alt="{% if gallery_image.caption %}{{ gallery_image.caption }}{% else %}{{ service.title }}{% endif %}"
+            >
+
+            <div class="gallery-overlay">
+
+                <span>
+                    {{ forloop.counter|stringformat:"02d" }}
+                </span>
+
+                {% if gallery_image.caption %}
+
+                <strong>
+                    {{ gallery_image.caption }}
+                </strong>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+        <div class="service-benefits">
+
+            <div class="benefit-card">
+                <span>01</span>
+
+                <h3>
+                    Сапалы материал
+                </h3>
+
+                <p>
+                    Жарнаманың сыртқы көрінісі
+                    мен беріктігіне мән береміз.
+                </p>
+            </div>
+
+
+            <div class="benefit-card">
+                <span>02</span>
+
+                <h3>
+                    Дәл өндіріс
+                </h3>
+
+                <p>
+                    Жобаны белгіленген талаптар
+                    бойынша дайындаймыз.
+                </p>
+            </div>
+
+
+            <div class="benefit-card">
+                <span>03</span>
+
+                <h3>
+                    Жеке тәсіл
+                </h3>
+
+                <p>
+                    Әр жобаға оның мақсатына
+                    қарай жеке шешім ұсынамыз.
+                </p>
+            </div>
+
+
+            <div class="benefit-card">
+                <span>04</span>
+
+                <h3>
+                    Толық қызмет
+                </h3>
+
+                <p>
+                    Дизайннан бастап дайын
+                    өнімге дейін жұмыс істейміз.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% if related_services %}
+
+<section class="related-services">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+                <span class="small-label">
+                    KDRPRINT / ҚЫЗМЕТТЕР
+                </span>
+
+                <h2>
+                    Басқа
+                    <em>қызметтер</em>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="related-services-grid">
+
+            {% for related in related_services %}
+
+            <a
+                href="{% url 'service_detail' related.slug %}"
+                class="related-service"
+            >
+
+                <span>
+                    {{ related.number|stringformat:"02d" }}
+                </span>
+
+                <h3>
+                    {{ related.title }}
+                </h3>
+
+                <b>↗</b>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+<section class="service-detail-cta">
+
+    <div class="container">
+
+        <div class="luxury-kicker">
+            ЖОБАНЫ БАСТАУ
+        </div>
+
+        <h2>
+            Осы қызмет
+            <em>сізге керек пе?</em>
+        </h2>
+
+        <a
+            href="{% url 'contacts' %}"
+            class="luxury-cta-button"
+        >
+            Тапсырыс беру
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

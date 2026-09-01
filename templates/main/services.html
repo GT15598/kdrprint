@@ -1,0 +1,193 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Қызметтер — KDRPRINT{% endblock %}
+
+{% block content %}
+
+<section class="inner-hero luxury-inner-hero">
+
+    <div class="inner-hero-number">01</div>
+
+    <div class="container">
+
+        <div class="luxury-kicker">
+            KDRPRINT / ҚЫЗМЕТТЕР
+        </div>
+
+        <h1>
+            Толық циклді
+            <em>жарнама.</em>
+        </h1>
+
+        <p>
+            Идеядан бастап дайын өнімге дейін.
+            Жарнаманы жасап, басып шығарып,
+            қажет болса орнатып береміз.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="service-intro">
+
+    <div class="container service-intro-grid">
+
+        <div class="luxury-kicker">
+            БІЗ НЕ ІСТЕЙМІЗ?
+        </div>
+
+        <div>
+
+            <h2>
+                Біз тек өндірмейміз.
+                <em>Әсер қалдырамыз.</em>
+            </h2>
+
+            <p>
+                Дизайнды, өндірісті және жарнаманы
+                бір жүйеге біріктіріп,
+                сізге дайын шешім ұсынамыз.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="services-page">
+
+    <div class="container">
+
+        <div class="services-list">
+
+            {% for service in services %}
+
+            <a
+                href="{% url 'service_detail' service.slug %}"
+                class="premium-service"
+            >
+
+                <div class="premium-service-top">
+
+                    <span>
+                        {{ service.number|stringformat:"02d" }}
+                    </span>
+
+                    <span>
+                        KDRPRINT / {{ service.short_title|upper }}
+                    </span>
+
+                </div>
+
+
+                <div class="premium-service-main">
+
+                    <h2>
+                        {{ service.title }}
+                    </h2>
+
+                    <div class="service-big-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+
+                <p>
+                    {{ service.description }}
+                </p>
+
+            </a>
+
+            {% empty %}
+
+            <div class="empty-projects">
+
+                <span>
+                    ҚЫЗМЕТТЕР ӘЗІРГЕ ЖОҚ
+                </span>
+
+                <h2>
+                    Алғашқы қызметті
+                    <em>қосайық.</em>
+                </h2>
+
+                <p>
+                    Қызметтерді Django Admin арқылы қосыңыз.
+                </p>
+
+                <a
+                    href="/admin/"
+                    class="luxury-cta-button"
+                >
+                    Қызмет қосу
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="service-image-section">
+
+    <div class="container">
+
+        <div class="service-image-wrap">
+
+            <img
+                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1800&q=90"
+                alt="Жарнама дизайны"
+            >
+
+            <div class="service-image-content">
+
+                <span>ИДЕЯДАН БАСТАЛЫП</span>
+
+                <h2>
+                    ШЫНАЙЫ
+                    <em>НӘТИЖЕГЕ.</em>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="inner-cta">
+
+    <div class="container">
+
+        <span class="luxury-kicker">
+            ЖОБАНЫ БАСТАУ
+        </span>
+
+        <h2>
+            Жобаңыз бар ма?
+            <em>Талқылайық.</em>
+        </h2>
+
+        <a href="{% url 'contacts' %}" class="luxury-cta-button">
+            Жобаға тапсырыс беру
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
