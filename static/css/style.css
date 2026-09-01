@@ -3414,6 +3414,6 @@ button {
 
 @media (max-width: 768px) {
     .hero-buttons .luxury-button span {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
