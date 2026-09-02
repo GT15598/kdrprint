@@ -3412,8 +3412,396 @@ button {
 
 }
 
+
+
 @media (max-width: 768px) {
     .hero-buttons .luxury-button span {
-        font-size: 25px;
+        font-size: 10px;
     }
 }
+
+/* =========================================================
+   KDRPRINT — RESPONSIVE MASTER OVERRIDES
+   Desktop design remains unchanged. These rules improve
+   laptop, tablet, phone and small-phone layouts.
+========================================================= */
+
+/* LAPTOP / SMALL DESKTOP */
+@media (max-width: 1200px) {
+    .container { width: min(100% - 60px, 1100px); }
+    .main-nav { gap: 22px; margin-right: 35px; }
+    .hero-main { gap: 55px; }
+    .hero-image-frame { height: 590px; }
+    .statement-grid { gap: 60px; }
+    .about-grid { gap: 70px; }
+    .contact-information-grid { gap: 70px; }
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .container { width: min(100% - 45px, 850px); }
+
+    .mobile-nav {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(8,8,8,.98);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .mobile-nav.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 90;
+    }
+
+    .mobile-nav .main-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        margin: 0;
+    }
+
+    .mobile-nav .main-nav a {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .mobile-menu {
+        position: relative;
+        z-index: 110;
+        cursor: pointer;
+    }
+
+    .mobile-menu span { transition: transform .3s ease, opacity .3s ease; }
+
+    .mobile-menu.active span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .mobile-menu.active span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+    body.menu-open { overflow: hidden; }
+
+    .hero-main { grid-template-columns: 1fr; gap: 55px; }
+    .hero-image-wrap { max-width: 700px; }
+    .hero-image-frame { height: 560px; }
+
+    .luxury-service { grid-template-columns: 55px 1fr 50px; }
+    .service-description { display: none; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 70px; }
+    .about-image { max-width: 700px; }
+
+    .premium-portfolio-grid { grid-template-columns: 1fr 1fr; gap: 45px 20px; }
+    .project-featured .premium-project-image { height: 600px; }
+    .project-wide .premium-project-image { height: 500px; }
+
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .value-card:nth-child(2) { border-right: 0; }
+
+    .contact-information-grid { grid-template-columns: 1fr; gap: 65px; }
+
+    .service-benefits { grid-template-columns: 1fr 1fr; }
+    .benefit-card:nth-child(2) { border-right: 0; }
+    .related-services-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* PHONE */
+@media (max-width: 600px) {
+    .container { width: calc(100% - 30px); }
+
+    .site-header { padding: 18px 0; }
+    .header-inner { min-height: 45px; }
+    .brand { font-size: 20px; }
+    .header-action { display: none; }
+    .mobile-menu { width: 42px; height: 42px; }
+
+    .mobile-nav .main-nav { gap: 24px; }
+    .mobile-nav .main-nav a { font-size: 14px; }
+
+    .luxury-hero { min-height: auto; padding: 110px 0 65px; }
+    .hero-topline { font-size: 7px; letter-spacing: 1.3px; }
+    .hero-main { margin-top: 50px; gap: 45px; }
+    .eyebrow { margin-bottom: 25px; font-size: 8px; }
+    .hero-copy h1 {
+        font-size: clamp(42px, 13vw, 58px);
+        letter-spacing: -3px;
+    }
+    .hero-lead { font-size: 12px; line-height: 1.75; margin-top: 28px; }
+    .hero-buttons { flex-direction: column; gap: 10px; margin-top: 30px; }
+    .luxury-button {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+        padding: 15px 18px;
+        font-size: 11px;
+    }
+    .hero-buttons .luxury-button span { font-size: 11px; }
+    .hero-image-frame { height: min(110vw, 430px); }
+    .hero-image-info { left: 18px; right: 18px; bottom: 18px; font-size: 7px; }
+
+    .statement-section,
+    .luxury-services,
+    .featured-project,
+    .luxury-numbers,
+    .luxury-portfolio,
+    .luxury-about { padding: 90px 0; }
+
+    .statement-grid { grid-template-columns: 1fr; gap: 25px; }
+    .statement-content h2 {
+        font-size: clamp(38px, 11vw, 50px);
+        letter-spacing: -3px;
+    }
+    .statement-content p { font-size: 12px; margin-top: 28px; }
+
+    .section-header { margin-bottom: 55px; }
+    .section-header h2 {
+        font-size: clamp(42px, 12vw, 58px);
+        letter-spacing: -3px;
+    }
+    .section-header > p { font-size: 12px; margin-top: 22px; }
+
+    .luxury-service {
+        grid-template-columns: 30px 1fr 35px;
+        min-height: 125px;
+        gap: 8px;
+    }
+    .service-number { font-size: 9px; }
+    .service-name {
+        font-size: clamp(23px, 7vw, 31px);
+        letter-spacing: -1.5px;
+    }
+    .service-arrow { width: 35px; height: 35px; font-size: 14px; }
+
+    .featured-image { height: min(125vw, 480px); }
+    .featured-title { left: 20px; bottom: 20px; right: 20px; }
+    .featured-title h2 {
+        font-size: clamp(42px, 14vw, 65px);
+        letter-spacing: -4px;
+    }
+
+    .numbers-heading h2 {
+        font-size: clamp(45px, 15vw, 65px);
+        letter-spacing: -4px;
+    }
+    .numbers-row { grid-template-columns: 1fr 1fr; margin-top: 60px; }
+    .luxury-number { padding: 22px 10px; }
+    .luxury-number strong { font-size: clamp(34px, 10vw, 48px); letter-spacing: -3px; }
+    .luxury-number strong span { font-size: 18px; }
+    .luxury-number p { font-size: 10px; }
+
+    .portfolio-masonry { display: block; }
+    .portfolio-card,
+    .portfolio-card.tall,
+    .portfolio-card.wide {
+        height: min(105vw, 390px);
+        margin-bottom: 15px;
+    }
+    .portfolio-card-info { left: 20px; right: 20px; bottom: 20px; }
+    .portfolio-card-info h3 { font-size: 20px; }
+
+    .about-image img { height: min(110vw, 420px); }
+    .about-number { width: 90px; height: 90px; right: -5px; bottom: -5px; }
+    .about-content h2 {
+        font-size: clamp(40px, 12vw, 52px);
+        letter-spacing: -3px;
+    }
+    .about-content p { font-size: 12px; }
+
+    .luxury-contact { padding: 95px 0; }
+    .luxury-contact h2 {
+        font-size: clamp(45px, 14vw, 68px);
+        letter-spacing: -4px;
+    }
+    .contact-bottom { display: block; margin-top: 60px; }
+    .contact-bottom p { font-size: 12px; }
+    .contact-circle { width: 135px; height: 135px; margin-top: 35px; }
+
+    .footer-top { display: block; padding-bottom: 70px; }
+    .footer-giant {
+        margin-top: 65px;
+        font-size: clamp(62px, 20vw, 90px);
+        letter-spacing: -5px;
+    }
+    .footer-bottom { flex-direction: column; gap: 18px; }
+    .footer-socials { flex-wrap: wrap; gap: 18px; }
+
+    /* Inner pages */
+    .inner-hero { min-height: 65vh; padding: 125px 0 80px; }
+    .inner-hero h1 {
+        font-size: clamp(48px, 14vw, 65px);
+        letter-spacing: -4px;
+    }
+    .inner-hero p { font-size: 12px; margin-top: 30px; }
+    .inner-hero-number { font-size: 55vw; letter-spacing: -12px; }
+
+    .service-intro,
+    .services-page,
+    .service-image-section,
+    .portfolio-page,
+    .about-intro,
+    .about-image-section,
+    .about-values,
+    .contact-information { padding-top: 85px; padding-bottom: 85px; }
+
+    .service-intro-grid,
+    .about-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .service-intro h2,
+    .about-intro-copy h2 {
+        font-size: clamp(40px, 12vw, 52px);
+        letter-spacing: -3px;
+    }
+    .service-intro p,
+    .about-intro-copy p { font-size: 12px; margin-top: 25px; }
+
+    .premium-service { padding: 30px 0 35px; }
+    .premium-service-main { gap: 12px; margin: 25px 0; }
+    .premium-service h2 {
+        font-size: clamp(27px, 8vw, 38px);
+        letter-spacing: -2px;
+    }
+    .service-big-arrow { width: 42px; min-width: 42px; height: 42px; font-size: 16px; }
+    .premium-service p { font-size: 11px; }
+
+    .service-image-wrap { height: min(110vw, 470px); }
+    .service-image-content { left: 20px; bottom: 20px; right: 20px; }
+    .service-image-content h2 {
+        font-size: clamp(40px, 13vw, 58px);
+        letter-spacing: -3px;
+    }
+
+    .inner-cta,
+    .service-detail-cta,
+    .contact-bottom-section { padding: 90px 0; }
+    .inner-cta h2,
+    .service-detail-cta h2,
+    .contact-bottom-inner h2 {
+        font-size: clamp(45px, 14vw, 62px);
+        letter-spacing: -4px;
+    }
+    .luxury-cta-button { width: 100%; justify-content: center; }
+
+    .portfolio-page-head { display: block; }
+    .portfolio-page-head p { margin-top: 15px; }
+    .premium-portfolio-grid { display: block; }
+    .premium-project { margin-bottom: 45px; }
+    .project-featured .premium-project-image,
+    .premium-project-image,
+    .project-wide .premium-project-image { height: min(95vw, 390px); }
+    .premium-project-info { gap: 15px; }
+    .premium-project-info h2 { font-size: 19px; }
+
+    .about-big-word { font-size: clamp(65px, 20vw, 90px); letter-spacing: -5px; }
+    .about-large-image { height: min(105vw, 450px); }
+    .about-image-overlay { padding: 22px; }
+    .about-image-overlay strong {
+        font-size: clamp(42px, 13vw, 62px);
+        letter-spacing: -3px;
+    }
+    .values-grid { grid-template-columns: 1fr; }
+    .value-card,
+    .value-card:first-child { padding-left: 0; border-right: 0; min-height: auto; }
+    .value-card h3 { margin-top: 35px; }
+
+    .contact-hero { min-height: 65vh; padding: 125px 0 80px; }
+    .contact-hero h1 {
+        font-size: clamp(50px, 15vw, 70px);
+        letter-spacing: -4px;
+    }
+    .contact-hero p { font-size: 12px; margin-top: 30px; }
+    .contact-information-grid { grid-template-columns: 1fr; gap: 55px; }
+    .contact-detail a,
+    .contact-detail p { font-size: 18px; word-break: break-word; }
+    .contact-form-box h2 { font-size: clamp(40px, 12vw, 50px); letter-spacing: -3px; }
+    .luxury-form { gap: 24px; }
+    .luxury-submit { width: 100%; justify-content: center; }
+
+    /* Project / service detail */
+    .project-detail-hero { min-height: 55vh; padding: 120px 0 55px; }
+    .project-detail-heading { padding-top: 40px; }
+    .project-detail-heading h1,
+    .service-detail-heading h1 {
+        font-size: clamp(45px, 14vw, 60px);
+        letter-spacing: -3px;
+    }
+    .project-detail-navigation,
+    .service-detail-top { gap: 15px; }
+    .project-main-image,
+    .service-detail-image { height: min(95vw, 360px); }
+    .project-main-image-overlay,
+    .service-detail-image-overlay { padding: 18px; }
+    .project-information,
+    .service-detail-description { grid-template-columns: 1fr; gap: 40px; padding: 75px 0 55px; }
+    .project-information-left h2,
+    .service-detail-description h2 { font-size: clamp(40px, 12vw, 50px); letter-spacing: -3px; }
+    .project-information-right p,
+    .service-detail-description p { font-size: 13px; }
+    .project-facts { grid-template-columns: 1fr 1fr; }
+    .project-fact { min-height: 140px; padding: 25px 15px; }
+    .project-fact:nth-child(2) { border-right: 0; }
+    .project-extra { grid-template-columns: 1fr; gap: 25px; padding-top: 70px; }
+
+    .service-detail-hero { min-height: 500px; padding: 115px 0 45px; }
+    .service-detail-main { padding: 20px 0 80px; }
+    .service-benefits { grid-template-columns: 1fr; }
+    .benefit-card,
+    .benefit-card:first-child { min-height: auto; padding: 25px 0; border-right: 0; }
+    .benefit-card h3 { margin-top: 25px; }
+    .related-services { padding: 80px 0; }
+    .related-services-grid { grid-template-columns: 1fr; }
+    .related-service { min-height: 175px; padding: 25px 0; border-right: 0; }
+    .related-service h3 { margin-top: 40px; font-size: 22px; }
+
+    .service-gallery { margin-top: 65px; padding-top: 50px; }
+    .service-gallery-header { display: block; margin-bottom: 35px; }
+    .service-gallery-header h2 { font-size: clamp(40px, 12vw, 50px); letter-spacing: -3px; }
+    .gallery-count { margin-top: 15px; }
+    .service-gallery-grid { grid-template-columns: 1fr; }
+    .service-gallery-item,
+    .service-gallery-item.gallery-large { height: min(85vw, 320px); grid-column: auto; }
+}
+
+/* SMALL PHONES */
+@media (max-width: 380px) {
+    .container { width: calc(100% - 24px); }
+    .site-header { padding: 15px 0; }
+    .brand { font-size: 18px; }
+    .mobile-menu { width: 38px; height: 38px; }
+    .hero-copy h1 { font-size: 40px; }
+    .hero-lead { font-size: 11px; }
+    .luxury-button { min-height: 48px; }
+    .numbers-row { grid-template-columns: 1fr; }
+    .luxury-number { border-right: 0; border-bottom: 1px solid rgba(0,0,0,.2); padding-left: 0; }
+    .luxury-number:last-child { border-bottom: 0; }
+    .featured-title h2 { font-size: 42px; }
+    .luxury-contact h2 { font-size: 44px; }
+    .footer-giant { font-size: 60px; }
+    .inner-hero h1,
+    .contact-hero h1,
+    .service-detail-heading h1,
+    .project-detail-heading h1 { font-size: 44px; }
+    .premium-service h2 { font-size: 27px; }
+    .project-facts { grid-template-columns: 1fr; }
+    .project-fact,
+    .project-fact:nth-child(2) { border-right: 0; }
+}
+
+/* TOUCH DEVICES: remove hover-only movement that can feel sticky */
+@media (hover: none) and (pointer: coarse) {
+    .luxury-service:hover,
+    .premium-service:hover { padding-left: 0; padding-right: 0; }
+    .portfolio-card:hover img,
+    .featured-image:hover img,
+    .hero-image-frame:hover img,
+    .about-image img:hover,
+    .service-detail-image:hover img,
+    .project-main-image:hover img { transform: none; }
+}
+
+
