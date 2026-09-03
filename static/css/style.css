@@ -137,7 +137,7 @@ button {
     gap: 4px;
     align-items: baseline;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 25px;
     letter-spacing: -1.5px;
 }
 
@@ -158,7 +158,7 @@ button {
 
 .main-nav a {
     color: #96918c;
-    font-size: 11px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: .3s;
@@ -174,7 +174,7 @@ button {
     gap: 16px;
     padding: 13px 16px;
     border: 1px solid var(--line);
-    font-size: 10px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: .35s;
@@ -183,7 +183,7 @@ button {
 .header-action i {
     color: var(--orange);
     font-style: normal;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .header-action:hover {
@@ -245,7 +245,7 @@ button {
     display: flex;
     justify-content: space-between;
     color: #63605c;
-    font-size: 9px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -268,7 +268,7 @@ button {
     align-items: center;
     gap: 12px;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 35px;
@@ -283,7 +283,7 @@ button {
 
 .hero-copy h1 {
     font-family: "Manrope", sans-serif;
-    font-size: clamp(65px, 7vw, 112px);
+    font-size: clamp(58.5px, 6.3vw, 100.8px);
     font-weight: 600;
     line-height: .91;
     letter-spacing: -6px;
@@ -312,7 +312,7 @@ button {
 
 .hero-buttons {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     margin-top: 42px;
 }
 
@@ -321,7 +321,7 @@ button {
     align-items: center;
     gap: 25px;
     padding: 17px 20px;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: .35s;
@@ -1055,7 +1055,7 @@ button {
 ========================================================= */
 
 .site-footer {
-    padding: 100px 0 25px;
+    padding: 110px 0 28px; /* было 100px 0 25px */
     background: #050505;
 }
 
@@ -1063,11 +1063,11 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding-bottom: 110px;
+    padding-bottom: 121px; /* было 110px */
 }
 
 .footer-logo {
-    font-size: 25px;
+    font-size: 27.5px; /* было 25px */
     font-weight: 800;
 }
 
@@ -1076,17 +1076,17 @@ button {
 }
 
 .footer-brand p {
-    max-width: 330px;
-    margin-top: 20px;
+    max-width: 363px; /* было 330px */
+    margin-top: 22px; /* было 20px */
     color: #57534e;
-    font-size: 11px;
+    font-size: 12px; /* было 11px */
     line-height: 1.8;
 }
 
 .footer-giant {
-    font-size: clamp(80px, 11vw, 160px);
+    font-size: clamp(88px, 12.1vw, 176px); /* было 80px, 11vw, 160px */
     font-weight: 800;
-    letter-spacing: -9px;
+    letter-spacing: -9.9px; /* было -9px */
     line-height: .65;
     color: #171717;
 }
@@ -1099,21 +1099,20 @@ button {
     border-top: 1px solid #1c1c1c;
     padding-top: 25px;
     color: #4f4b47;
-    font-size: 9px;
-    letter-spacing: 1.3px;
+    font-size: 15px;
+    letter-spacing: 1.4px;
     display: flex;
     justify-content: space-between;
 }
 
 .footer-socials {
     display: flex;
-    gap: 25px;
+    gap: 28px; /* было 25px */
 }
 
 .footer-socials a:hover {
     color: var(--orange);
 }
-
 
 /* =========================================================
    TABLET
@@ -1229,7 +1228,7 @@ button {
     }
 
     .hero-copy h1 {
-        font-size: 54px;
+        font-size: 50px;
         letter-spacing: -3px;
     }
 
