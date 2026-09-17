@@ -67,10 +67,12 @@
 
 
                     <a
-                        href="{% url 'contacts' %}"
+                        href="https://wa.me/77074830083"
+                        target="_blank"
+                        rel="noopener"
                         class="luxury-button secondary"
                     >
-                        <span>Жоба бастау</span>
+                        <span>WhatsApp арқылы жазу</span>
                     </a>
 
                 </div>
@@ -440,93 +442,16 @@
         </div>
 
 
-        <div class="portfolio-masonry">
-
-
-            <a
-                href="{% url 'portfolio' %}"
-                class="portfolio-card tall"
-            >
-
-                <img
-                    src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=90"
-                    alt="Баспа жұмысы"
-                >
-
-                <div class="portfolio-card-info">
-                    <span>01 / БАСУ</span>
-                    <h3>Баспа өнімдері</h3>
-                </div>
-
-            </a>
-
-
-            <a
-                href="{% url 'portfolio' %}"
-                class="portfolio-card"
-            >
-
-                <img
-                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=90"
-                    alt="Жарнама дизайны"
-                >
-
-                <div class="portfolio-card-info">
-                    <span>02 / ДИЗАЙН</span>
-                    <h3>Жарнама дизайны</h3>
-                </div>
-
-            </a>
-
-
-            <a
-                href="{% url 'portfolio' %}"
-                class="portfolio-card"
-            >
-
-                <img
-                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90"
-                    alt="Коммерциялық кеңістік"
-                >
-
-                <div class="portfolio-card-info">
-                    <span>03 / РЕКЛАМА</span>
-                    <h3>Коммерциялық кеңістік</h3>
-                </div>
-
-            </a>
-
-
-            <a
-                href="{% url 'portfolio' %}"
-                class="portfolio-card wide"
-            >
-
-                <img
-                    src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1600&q=90"
-                    alt="Жарнама жобасы"
-                >
-
-                <div class="portfolio-card-info">
-                    <span>04 / ЖАРНАМА</span>
-                    <h3>Жарнамалық жоба</h3>
-                </div>
-
-            </a>
-
-        </div>
-
     </div>
 
 </section>
 
 <div class="portfolio-masonry">
-    <div class="portfolio-masonry">
 
     {% for project in featured_projects %}
 
     <a
-        href="{% url 'portfolio' %}"
+        href="{% url 'project_detail' project.id %}"
         class="portfolio-card {% if forloop.first %}tall{% endif %}"
     >
 

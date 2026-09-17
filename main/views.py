@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project
 from .models import Project, Service
-from django.contrib import messages    
+
 
 def home(request):
     featured_projects = Project.objects.filter(
@@ -30,6 +29,7 @@ def services(request):
         }
     )
 
+
 def service_detail(request, slug):
     service = get_object_or_404(
         Service.objects.prefetch_related('gallery'),
@@ -51,6 +51,7 @@ def service_detail(request, slug):
             'related_services': related_services,
         }
     )
+
 
 def portfolio(request):
     projects = Project.objects.all().order_by('-created_at')
@@ -80,24 +81,14 @@ def project_detail(request, project_id):
 
 
 def about(request):
-    return render(request, 'main/about.html')
+    return render(
+        request,
+        'main/about.html'
+    )
+
 
 def contacts(request):
-
-    if request.method == 'POST':
-
-        ContactRequest.objects.create(
-            name=request.POST.get('name', '').strip(),
-            phone=request.POST.get('phone', '').strip(),
-            email=request.POST.get('email', '').strip(),
-            message=request.POST.get('message', '').strip(),
-        )
-
-        return redirect('contacts')
-
     return render(
         request,
         'main/contacts.html'
     )
-
-

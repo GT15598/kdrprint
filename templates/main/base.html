@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}KDRPRINT — Жарнама және баспа{% endblock %}</title>
+    <title>{% block title %}KDRPRINT{% endblock %}</title>
 
     <meta
         name="description"
         content="KDRPRINT — Шымкент қаласындағы жарнама, баспа, сыртқы жарнама және дизайн."
     >
-
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.jpg' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -44,7 +44,7 @@
                 <span class="brand-print">PRINT</span>
             </a>
 
-            <div class="mobile-nav">
+            <div class="mobile-nav" id="mobile-navigation">
                 <nav class="main-nav">
                     <a href="{% url 'home' %}">Басты бет</a>
                     <a href="{% url 'services' %}">Қызметтер</a>
@@ -60,7 +60,7 @@
             </a>
 
 
-            <button class="mobile-menu" aria-label="Мәзір">
+            <button class="mobile-menu" type="button" aria-label="Мәзірді ашу" aria-expanded="false" aria-controls="mobile-navigation">
                 <span></span>
                 <span></span>
             </button>
@@ -124,35 +124,7 @@
 
 
 
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (!mobileMenu || !mobileNav) {
-        console.log('Mobile menu elements not found');
-        return;
-    }
-
-    mobileMenu.addEventListener('click', function () {
-        mobileMenu.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    });
-
-    const mobileLinks = mobileNav.querySelectorAll('a');
-
-    mobileLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-            mobileMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        });
-    });
-
-});
-</script>
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>

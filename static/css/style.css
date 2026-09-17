@@ -68,7 +68,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: loader-hide 1.3s ease 1.2s forwards;
+    animation: loader-hide .5s ease .35s forwards;
     pointer-events: none;
 }
 

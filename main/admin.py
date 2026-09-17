@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Project, Service, ServiceImage
-from .models import Project, Service, ServiceImage, ContactRequest
 
 
 @admin.register(Project)
@@ -89,37 +88,3 @@ class ServiceAdmin(admin.ModelAdmin):
         ServiceImageInline,
     ]
 
-@admin.register(ContactRequest)
-class ContactRequestAdmin(admin.ModelAdmin):
-
-    list_display = (
-        'name',
-        'phone',
-        'email',
-        'is_processed',
-        'created_at',
-    )
-
-    list_filter = (
-        'is_processed',
-        'created_at',
-    )
-
-    search_fields = (
-        'name',
-        'phone',
-        'email',
-        'message',
-    )
-
-    list_editable = (
-        'is_processed',
-    )
-
-    readonly_fields = (
-        'created_at',
-    )
-
-    ordering = (
-        '-created_at',
-    )
